@@ -1,0 +1,1 @@
+- range from 0 - to 100 using steps set to 100 / the number of markers 

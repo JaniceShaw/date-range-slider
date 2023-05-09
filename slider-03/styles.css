@@ -1,0 +1,161 @@
+body {
+  text-align: center;
+  background-color: #ececeb;
+  font-family: Arial, Helvetica, sans-serif;
+}
+.value {
+  font-size: 14px;
+  margin: 70px auto 0 auto;
+  text-align: center;
+  line-height: 14px;
+  display: inline-block;
+  padding: 5px;
+}
+
+.slider-wrapper {
+  max-width: 500px;
+  margin: 20px auto;
+  position: relative;
+  padding: 90px 90px 20px 50px;
+  background-color: white;
+  border-radius: 10px;
+}
+
+/* Extend the line to the right */
+.slider-wrapper::before{
+  position: absolute;
+  height: 2px;
+  width: 40%;
+  content:"";
+  top:102px;
+  right:40px;
+  background-color:#1290a1;
+  
+}
+
+.later{
+  position: absolute;
+  /* height: 30px;
+  width: 30px; */
+  content:"";
+  top:-5px;
+  right:-53px;
+  /* background-color:red; */
+  width: 0; 
+  height: 0; 
+  border-top: 18px solid transparent;
+  border-bottom: 18px solid transparent;
+  
+  border-left: 23px solid #1290a1;
+}
+.later:hover{
+  border-left: 23px solid #0d525b;
+  cursor: pointer;
+}
+.later::after{
+  font-size:14px;
+  content:"later...";
+  position:absolute;
+  left:-32px;
+  top:30px;
+}
+
+.slidecontainer {
+  width: 100%;
+  /* border:solid 1px hotpink; */
+  position: relative;
+}
+
+.marker {
+  height: 25px;
+  width: 1px;
+  background-color: #0d525b;
+  top: 0;
+  position: absolute;
+}
+.option.marker {
+  height: 50px;
+  width: 2px;
+  top: -12px;
+}
+
+.option.marker::before {
+  position: absolute;
+  content: "";
+  height: 20px;
+  width: 20px;
+  border-radius: 50%;
+  background-color: #ececeb;
+  top: -30px;
+  left: -9px;
+}
+
+.option.marker:nth-child(odd)::before {
+  position: absolute;
+  content: "";
+  height: 20px;
+  width: 20px;
+  border-radius: 50%;
+  background-color: #ececeb;
+  top: 55px;
+  left: -9px;
+}
+.option.marker:hover::before {
+  background-color: orange;
+}
+.selected.marker::before {
+  background-color: #ff7000;
+}
+
+.option.marker .marker__label {
+  position: absolute;
+  content: "hello";
+  /* background-color:hotpink; */
+  top: -55px;
+  left: -1000%;
+  /* width:100px; */
+  white-space: nowrap;
+  display: block;
+  /* display:none; */
+}
+
+.option.marker:nth-child(odd) .marker__label {
+  /* background-color:hotpink; */
+  top: 80px;
+}
+
+/* The slider itself */
+.slider {
+  -webkit-appearance: none; /* Override default CSS styles */
+  appearance: none;
+  width: 100%; /* Full-width */
+  height: 2px; /* Specified height */
+  background: #1290a1; /* Grey background */
+  /* opacity:0.5 */
+  /*  outline: none; Remove outline */
+  /* opacity: 0.7; /* Set transparency (for mouse-over effects on hover) */
+  /*-webkit-transition: .2s; /* 0.2 seconds transition on hover */
+  /* transition: opacity .2s; */
+}
+
+/* Mouse-over effects */
+.slider:hover {
+  /*opacity: 1; Fully shown on mouse-over */
+}
+
+/* The slider handle (use -webkit- (Chrome, Opera, Safari, Edge) and -moz- (Firefox) to override default look) */
+.slider::-webkit-slider-thumb {
+  -webkit-appearance: none; /* Override default look */
+  appearance: none;
+  width: 8px; /* Set a specific slider handle width */
+  height: 52px; /* Slider handle height */
+  background-color: #0d525b; /* Green background */
+  cursor: pointer; /* Cursor on hover */
+}
+
+.slider::-moz-range-thumb {
+  width: 8px; /* Set a specific slider handle width */
+  height: 52px; /* Slider handle height */
+  background-color: #0d525b; /* Green background */
+  cursor: pointer; /* Cursor on hover */
+}

@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Range Slider</title>
+        <link rel="stylesheet" href="styles.css">
+    </head>
+    <body>
+        <!-- <h1>Range slider</h1> -->
+
+        <div class="slider-wrapper">
+            <div class="marker marker-0 option"></div>
+            <div class="marker marker-1 option"></div>
+            <div class="marker marker-2"></div>
+            <div class="marker marker-3 option selected"></div>
+            <div class="marker marker-4"></div>
+            <div class="marker marker-5"></div>
+            <div class="marker marker-6"></div>
+            <div class="marker marker-7"></div>
+            <div class="marker marker-8"></div>
+            <div class="marker marker-9 option"></div>
+            <!-- <div class="marker marker-10"></div> -->
+
+            <div class="slidecontainer">
+                <input type="range" min="0" max="100" class="slider"
+                    id="myRange" list="markers" />
+            </div>
+        </div>
+
+
+        <div id="date-display" class="value"></div>
+
+
+        <script src="script.js"></script>
+    </body>
+</html>
