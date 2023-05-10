@@ -4,13 +4,15 @@ const sliderData = [
     date: "",
     option: true,
     label: "Express same day",
-    selected: false
+    selected: false,
+    price: 430
   },
   {
     date: "",
     option: true,
     label: "A-Post",
-    selected: false
+    selected: false,
+    price: 310
   },
   {
     date: "",
@@ -22,7 +24,8 @@ const sliderData = [
     option: true,
     label: "B-Post",
     selected: true,
-    default: true
+    default: true,
+    price: 230
   },
   {
     date: "",
@@ -48,7 +51,8 @@ const sliderData = [
     date: "",
     option: true,
     label: "B2-Post",
-    selected: false
+    selected: false,
+    price: 180
   },
 ];
 
@@ -57,12 +61,18 @@ const sliderContainer = document.querySelector('.slider-container');
 const slider = document.getElementById("myRange");
 const output = document.getElementById("date-display");
 const labels = document.querySelectorAll('.option.marker');
+const price = document.getElementById("price-display");
+// temp calandar
+const open = document.querySelector("[data-open-modal]");
+const modal = document.querySelector("[data-modal]");
+const close = document.querySelector("[data-close-modal]");
 
 // settings
 const minDays = 3; // to calculate the earliest date
 const numberOfDays = sliderData.length - 1;
 const step = (100 / numberOfDays).toFixed(1); // for the position of the markers
 const startPosition = sliderData.findIndex(entry => entry.default === true);
+const startPrice = sliderData[startPosition].price;
 
 // used to work out which option to show as selected
 let lastSelectedOption = startPosition;
@@ -83,7 +93,6 @@ function addDays(days) {
 }
 
 const displayDate = function (val) {
-  // console.log(`displayDate: days to add ${val}`);
   const daysToAdd = val;
   const outputValue = addDays(daysToAdd);
   output.innerHTML = outputValue;
@@ -145,6 +154,7 @@ slider.value = startPosition;
 slider.max = numberOfDays;
 
 displayDate(startPosition); // Display the default slider value
+price.innerHTML = startPrice;
 
 // update date when slider moves
 slider.oninput = () => {
@@ -156,6 +166,8 @@ slider.oninput = () => {
 
 function updateSelected(marker) {
   const selectedElement = markers[marker];
+  //
+  price.innerHTML = sliderData[marker].price || startPrice;
 
   // check that selected marker is an option
   if (selectedElement.classList.length > 1) {
@@ -166,6 +178,7 @@ function updateSelected(marker) {
 
       if (classNames.length > 1) {
         mark.classList.remove('selected');
+      
       }
     });
 
@@ -190,3 +203,6 @@ function updateSelected(marker) {
     }
   }
 }
+
+open.addEventListener("click",()=> modal.showModal());
+close.addEventListener("click",()=> modal.close());

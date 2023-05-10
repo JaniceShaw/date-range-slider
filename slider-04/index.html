@@ -10,6 +10,10 @@
     <body>
 
         <div class="slider-wrapper">
+            <div class="fast-icon"></div>
+            <div class="slow-icon"></div>
+          
+
             <div class="slider-container">
 
                 <!-- <div class="marker option">
@@ -34,10 +38,19 @@
                 <input type="range" min="0" class="slider" step="1"
                     id="myRange" list="markers" />
 
-                <div class="later"></div>
-                <div id="date-display" class="value"></div>
+                <div class="later" data-open-modal></div>
+                <div class="info">
+                   <strong>ETA: </strong><div id="date-display" class="eta"></div>
+                   <div class="price"><strong>CHF: </strong><span id="price-display"></span></div>
+                </div>
+                
             </div>
+            
         </div>
+        <dialog data-modal>
+            <p>the calendar would be here</p>
+           <button data-close-modal>close</button>
+        </dialog>
 
         <script src="script.js"></script>
     </body>
