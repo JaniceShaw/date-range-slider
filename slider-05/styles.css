@@ -1,0 +1,259 @@
+body {
+  text-align: center;
+  background-color: #FAFAFA;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 14px;
+}
+
+.slider-wrapper {
+  color: #0d525b;
+  max-width: 500px;
+  margin: 15px auto;
+  position: relative;
+  padding: 75px 110px 20px 60px;
+  background-color: white;
+  border-radius: 10px;
+}
+
+.slider-wrapper .fast-icon{
+  position: absolute;
+  height:25px;
+  width:25px;
+  left:20px;
+  background:url('../icon/truck-fast-solid.svg')no-repeat;
+}
+
+
+.slider-wrapper .slow-icon{
+  position: absolute;
+  height:25px;
+  width:25px;
+  right:17px;
+  background:url('../icon/tractor-solid.svg')no-repeat;
+}
+
+/* Extend the line to the right */
+.slider-wrapper::before{
+  position: absolute;
+  height: 0px;
+  border-top:solid 2px #1290a1;
+  width: 50px;
+  content:"";
+  top:86px;
+  right:60px;
+}
+
+.later{
+  position: absolute;
+  content:"";
+  top:-5px;
+  right:-53px;
+  width: 0; 
+  height: 0; 
+  border-top: 18px solid transparent;
+  border-bottom: 18px solid transparent;
+  border-left: 23px solid #1290a1;
+}
+
+.later:hover{
+  border-left: 23px solid #0d525b;
+  cursor: pointer;
+}
+
+.later::after{
+  font-size:14px;
+  content:"later...";
+  position:absolute;
+  left:-32px;
+  top:30px;
+}
+
+/* to change the position in firefox so that it all lines up */
+@-moz-document url-prefix(){
+  .slider-wrapper::before{
+    top:99px;
+  }
+  .later{
+    top:-7px;
+  }
+
+}
+
+
+.slider-container {
+  width: 100%;
+  /* border:solid 1px hotpink; */
+  position: relative;
+}
+
+.info{
+  position: relative;
+  font-size: 14px;
+  margin: 90px -40px 0 0;
+  text-align: left;
+  padding: 5px 5px 5px 10px;
+  background:#ececeb;
+  border-radius:10px;
+  min-width:200px;
+}
+.eta {
+  text-align: left;
+  display: inline-block;
+  padding: 5px;
+  /* border:solid 2px green; */
+}
+
+.price {
+  text-align: right;float:right;
+  display: inline-block;
+  padding: 5px;
+
+}
+
+.marker {
+  height: 25px;
+  width: 1px;
+  background-color: #0d525b;
+  top: 0;
+  position: absolute;
+  z-index: 1;
+}
+
+/* .option.marker {
+  height: 50px;
+  width: 2px;
+  top: -12px;
+} */
+
+.option.marker::before {
+  position: absolute;
+  content: "";
+  height: 20px;
+  width: 20px;
+  border-radius: 50%;
+  background-color: #ececeb;
+  top: -38px;
+  left: -9px;
+  transition: background 0.2s linear;
+}
+
+.option.marker:nth-child(odd)::before {
+  top: 43px;
+  left: -7px;
+}
+ .option.marker.first.selected::before{
+  /* border:solid 2px hotpink; */
+  left:-5px;
+ }
+
+/* .option.marker:hover::before {
+  background-color: orange;
+} */
+
+.selected.marker::before {
+  background-color: #ff7000;
+  left: -12px;
+  
+}
+.disabled.marker{
+  /* background-color:  #ececeb; */
+  opacity:0.2
+}
+
+.option.marker .marker__label {
+  position: absolute;
+  /* content: "hello"; */
+  /* background-color:hotpink; */
+  top: -59px;
+  left: -1000%;
+  /* width:100px; */
+  white-space: nowrap;
+  display: block;
+  /* display:none; */
+}
+
+.option.marker:nth-child(odd) .marker__label {
+  /* background-color:hotpink; */
+  top: 68px;
+}
+
+/* The slider itself */
+.slider {
+  -webkit-appearance: none; /* Override default CSS styles */
+  appearance: none;
+  width: 100%; /* Full-width */
+  height: 2px; /* Specified height */
+  background: #1290a1; /* Grey background */
+  /* opacity:0.5 */
+  /*  outline: none; Remove outline */
+  /* opacity: 0.7; /* Set transparency (for mouse-over effects on hover) */
+  /*-webkit-transition: .2s; /* 0.2 seconds transition on hover */
+  /* transition: opacity .2s; */
+  z-index: 200;
+}
+
+/* Mouse-over effects */
+.slider:hover {
+  /*opacity: 1; Fully shown on mouse-over */
+}
+
+/* The slider handle (use -webkit- (Chrome, Opera, Safari, Edge) and -moz- (Firefox) to override default look) */
+.slider::-webkit-slider-thumb {
+  -webkit-appearance: none; /* Override default look */
+  appearance: none;
+  width: 10px; /* Set a specific slider handle width */
+  height: 53px; /* Slider handle height */
+  background-color: #0d525b; /* Green background */
+  cursor: pointer; /* Cursor on hover */
+}
+
+.slider::-moz-range-thumb {
+  width: 10px; /* Set a specific slider handle width */
+  height: 56px; /* Slider handle height */
+  background-color: #0d525b; /* Green background */
+  cursor: pointer; /* Cursor on hover */
+}
+
+.main-info{
+  color:#0d525b;
+  margin-top:30px;
+}
+
+hr{margin:20px auto; width:50%}
+
+button{
+  margin:5px 10px;
+  width:180px;
+  padding:10px;
+  border-radius:7px;
+  border: solid 2px #0d525b;
+  outline:none;
+  color: #0d525b;
+  background-color:white;
+  /* transition: background 0.15s linear; */
+}
+
+button:hover{
+  cursor: pointer;
+  background-color:#D3E7EA;
+}
+button.selected{
+  background-color:#ff7000;
+  border: solid 2px #ff7000;
+  color:white;
+}
+
+.unavailable{color:red}
+
+dialog{
+  border:solid 2px grey;
+  border-radius:10px;
+}
+
+dialog::backdrop{
+  background:rgba(0,0,0,0.5)
+}
+
+form{
+  margin:20px 5px
+}

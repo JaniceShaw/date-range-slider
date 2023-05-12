@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Date Range Slider</title>
+        <link rel="stylesheet" href="styles.css">
+    </head>
+    <body>
+
+        <div class="slider-wrapper">
+            <div class="fast-icon"></div>
+            <div class="slow-icon"></div>
+          
+
+            <div class="slider-container">
+
+                <!-- <div class="marker option">
+                    <div class="marker__label">Express same day</div>
+                </div>
+                <div class="marker marker-1 option">
+                    <div class="marker__label">A-post</div>
+                </div>
+                <div class="marker"></div>
+                <div class="marker option selected">
+                    <div class="marker__label">B-post</div>
+                </div>
+                <div class="marker"></div>
+                <div class="marker"></div>
+                <div class="marker"></div>
+                <div class="marker"></div>
+                <div class="marker"></div>
+                <div class="marker option">
+                    <div class="marker__label">B2-Post</div>
+                </div> -->
+
+                <input type="range" min="0" class="slider" step="1"
+                    id="myRange" list="markers" />
+
+                <div class="later" data-open-modal></div>
+                <div class="info">
+                   <strong>ETA: </strong><div id="date-display" class="eta"></div>
+                   <div class="price"><strong>CHF: </strong><span id="price-display"></span></div>
+                </div>
+                
+            </div>
+            
+        </div>
+
+        <div class="main-info">
+            <div class="provider"><h3>Die Post</h3></div>
+            <button data-step="1" data-group="1">A-Post</button>
+            <button data-step="3" data-group="2" class="selected">B-Post</button>
+            <button data-step="8" data-group="3">B2-Post</button>
+            <hr>
+            <div class="provider"><h3>Fedex</h3></div>
+            <button data-step="0" data-group="0">Express same day</button>
+
+        </div>
+
+        <dialog data-modal>
+            <p>Please select your delivery date</p>
+            <form action="">
+                <!-- <label for="delivery">select date:</label> -->
+                <input type="date" id="delivery" name="delivery">
+              </form>
+           <button data-close-modal>close</button>
+        </dialog>
+
+        <script src="script.js"></script>
+    </body>
+</html>
