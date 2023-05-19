@@ -78,6 +78,7 @@ const sliderData = [
     price: 180,
     optionGroup: 3
   },
+  
 ];
 
 // html elements
